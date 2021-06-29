@@ -1,17 +1,17 @@
 "use strict";
 
 const result = document.getElementById("result")
-const date = Date.parse(prompt("Veuillez insérer une date (DD-MM-YYYY)"))
+const input = prompt("Veuillez insérer une date (DD-MM-YYYY)")
+const date = new Date(input.substring(6), input.substring(3,5) - 1, input.substring(0,2))
 
-let msg = null
+let msg = ""
 
 console.log(date)
 
-if (isNaN(date.getTime)) {
+if (isNaN(date.getTime())) {
     msg = "La date insérée est incorrecte"
 }
 else {
-    msg = date.getMonth.toString()
+    msg = date.toLocaleString("fr-BE", {weekday: "long"})
 }
-
 result.innerHTML = msg
